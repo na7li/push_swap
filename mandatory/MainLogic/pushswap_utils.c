@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:30:47 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/09 12:24:21 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:44:23 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_sorting(t_stack *tmp)
 {
+	if (!tmp)
+		return (0);
 	while (tmp->next)
 	{
 		if (tmp->data > tmp->next->data)

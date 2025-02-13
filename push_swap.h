@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:03:35 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/09 11:48:24 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:02:56 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ long				ft_atol(const char *str);
 
 // ------------------------ Input Validation ----------------------- //
 int					parse_input(int ac, char **av, t_stack **a);
-int					number_of_digits(char **str);
 int					check_duplicates(t_stack *tmp, long nbr);
 void				free_stack(t_stack **a);
 void				free_array(char **str);

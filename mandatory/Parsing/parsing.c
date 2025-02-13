@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:06:20 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/09 15:13:08 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:03:21 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ static int	process_input_numbers(char *arg, t_stack **a)
 
 	str = ft_split(arg, ' ');
 	if (!str)
-		return (0);
-	if (!number_of_digits(str))
 		return (0);
 	j = -1;
 	while (str[++j])

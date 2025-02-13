@@ -2,34 +2,41 @@ CC                  = cc
 CFLAGS              = -Wall -Werror -Wextra
 RM                  = rm -rf
 
-SRC_DIR             = mandatory/
+OBJ_DIR             = obj_files/
 NAME                = push_swap
 
-MAIN		= $(SRC_DIR)MainLogic/push_swap.c
-MAIN_OBJ	= $(MAIN:%.c=%.o)
+MAIN		= mandatory/MainLogic/push_swap.c
+MAIN_OBJ	= $(addprefix $(OBJ_DIR), $(MAIN:.c=.o))
 
-SRCS		= $(SRC_DIR)MainLogic/pushswap_utils.c \
-			  $(SRC_DIR)Parsing/input_validation.c $(SRC_DIR)Parsing/parsing.c \
-			  $(SRC_DIR)SortStacks/sort_large_stack_1.c $(SRC_DIR)SortStacks/sort_large_stack_2.c $(SRC_DIR)SortStacks/sort_small_stack.c \
-			  $(SRC_DIR)StackUtils/push.c $(SRC_DIR)StackUtils/rotate.c $(SRC_DIR)StackUtils/rrotate.c $(SRC_DIR)StackUtils/stack_utils.c $(SRC_DIR)StackUtils/swap.c \
-			  $(SRC_DIR)Utilities/ft_atol.c $(SRC_DIR)Utilities/ft_split.c $(SRC_DIR)Utilities/number_of_digits.c
-SRCS_OBJ	= $(SRCS:%.c=%.o)
+SRCS		= mandatory/MainLogic/pushswap_utils.c \
+			  mandatory/Parsing/input_validation.c mandatory/Parsing/parsing.c \
+			  mandatory/SortStacks/sort_large_stack_1.c mandatory/SortStacks/sort_large_stack_2.c mandatory/SortStacks/sort_small_stack.c \
+			  mandatory/StackUtils/push.c mandatory/StackUtils/rotate.c mandatory/StackUtils/rrotate.c mandatory/StackUtils/stack_utils.c mandatory/StackUtils/swap.c \
+			  mandatory/Utilities/ft_atol.c mandatory/Utilities/ft_split.c
+SRCS_OBJ	= $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 
-all: $(NAME) clean
+all: $(NAME)
 
-$(NAME): $(SRCS_OBJ) $(MAIN_OBJ)
-	@$(CC) $(SRCS_OBJ) $(MAIN_OBJ) -o $(NAME)
+bonus:
+	@make -C bonus
+
+$(NAME): $(MAIN_OBJ) $(SRCS_OBJ)
+	@$(CC) $(CFLAGS) $(MAIN_OBJ) $(SRCS_OBJ) -o $(NAME)
 	@echo "push_swap is compiled successfully 🎉"
 
-%.o: %.c push_swap.h
+$(OBJ_DIR)%.o: %.c push_swap.h
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@make clean -C bonus
 	@$(RM) $(SRCS_OBJ) $(MAIN_OBJ)
+	@$(RM) $(OBJ_DIR)
 
 fclean: clean
+	@make fclean -C bonus
 	@$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: clean bonus

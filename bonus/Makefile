@@ -2,34 +2,42 @@ CC                  = cc
 CFLAGS              = -Wall -Werror -Wextra
 RM                  = rm -rf
 
-SRC_DIR             = ../mandatory/
+BONUS_DIR			= ../bonus/
+MANDATORY_DIR		= ../mandatory/
+OBJ_DIR             = ../obj_files/bonus/
 
 NAME                = ../checker
 
-SRCS		= checker.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
-			  $(SRC_DIR)MainLogic/pushswap_utils.c \
-			  $(SRC_DIR)Parsing/input_validation.c $(SRC_DIR)Parsing/parsing.c \
-			  $(SRC_DIR)SortStacks/sort_large_stack_1.c $(SRC_DIR)SortStacks/sort_large_stack_2.c $(SRC_DIR)SortStacks/sort_small_stack.c \
-			  $(SRC_DIR)StackUtils/push.c $(SRC_DIR)StackUtils/rotate.c $(SRC_DIR)StackUtils/rrotate.c $(SRC_DIR)StackUtils/stack_utils.c $(SRC_DIR)StackUtils/swap.c \
-			  $(SRC_DIR)Utilities/ft_atol.c $(SRC_DIR)Utilities/ft_split.c $(SRC_DIR)Utilities/number_of_digits.c
-SRCS_OBJ	= $(SRCS:%.c=%.o)
+BONUS_SRCS			= checker.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+MANDATORY_SRCS		= MainLogic/pushswap_utils.c \
+					  Parsing/input_validation.c Parsing/parsing.c \
+			  		  SortStacks/sort_large_stack_1.c SortStacks/sort_large_stack_2.c SortStacks/sort_small_stack.c \
+			  		  StackUtils/push.c StackUtils/rotate.c StackUtils/rrotate.c StackUtils/stack_utils.c StackUtils/swap.c \
+			  		  Utilities/ft_atol.c Utilities/ft_split.c
+SRCS				= $(addprefix $(BONUS_DIR), $(BONUS_SRCS)) \
+					  $(addprefix $(MANDATORY_DIR), $(MANDATORY_SRCS))
+
+SRCS_OBJ	= $(SRCS:../%.c=$(OBJ_DIR)%.o)
 
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(SRCS_OBJ)
-	@$(CC) $(SRCS_OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRCS_OBJ) -o $(NAME)
 	@echo "checker is compiled successfully 🎉"
 
-%.o: %.c
+$(OBJ_DIR)%.o: ../%.c checker.h
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(SRCS_OBJ)
+	@$(RM) $(OBJ_DIR)
 
 fclean: clean
+	@$(RM) $(OBJ_DIR)
 	@$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: clean
