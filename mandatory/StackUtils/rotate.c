@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 10:56:49 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/09 09:20:48 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/15 12:17:05 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,4 @@ void	rb(t_stack **b)
 {
 	if (rotate(b))
 		write(1, "rb\n", 3);
-}
-
-void	rr(t_stack **a, t_stack **b)
-{
-	if (rotate(a) && rotate(b))
-		write(1, "rr\n", 3);
 }

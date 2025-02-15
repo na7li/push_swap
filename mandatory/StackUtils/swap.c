@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:52:59 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/09 09:20:48 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/15 12:16:52 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ void	sb(t_stack **b)
 {
 	if (swap(b))
 		write(1, "sb\n", 3);
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	if (swap(a) && swap(b))
-		write(1, "ss\n", 3);
 }
