@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:50:23 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/08 12:52:56 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/16 08:26:49 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (ac < 2)
+		return (0);
 	if (!parse_input(ac, av, &stack_a))
 	{
 		free_stack(&stack_a);

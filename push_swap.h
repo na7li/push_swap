@@ -6,7 +6,7 @@
 /*   By: mnahli <mnahli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:03:35 by mnahli            #+#    #+#             */
-/*   Updated: 2025/02/11 11:02:56 by mnahli           ###   ########.fr       */
+/*   Updated: 2025/02/16 08:26:28 by mnahli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,15 @@ int					set_index(t_stack **a, int len);
 int					swap(t_stack **head);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
-void				ss(t_stack **a, t_stack **b);
 int					push(t_stack **from, t_stack **to);
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
-void				ra(t_stack **a);
 int					rotate(t_stack **head);
+void				ra(t_stack **a);
 void				rb(t_stack **b);
-void				rr(t_stack **a, t_stack **b);
 int					rrotate(t_stack **head);
 void				rra(t_stack **a);
 void				rrb(t_stack **b);
-void				rrr(t_stack **a, t_stack **b);
 
 // ------------------------- Sorting ------------------------------- //
 int					sort(t_stack **a, t_stack **b);
