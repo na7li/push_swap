@@ -68,3 +68,55 @@ then you pa push from stack_b to stack_a, they will be sorted automatically.
 and you free all and exit;
 
 ### 6.3. sort <= 100
+Use an array to assign sorted indices to the elements.
+Use a range-based approach to push elements from a to b:
+If the index is within the range, push to b.
+If the index is smaller, push to b and rotate b.
+Otherwise, rotate a.
+Once all elements are in b, move the largest element to the top of b and push it back to a.
+
+---
+
+## Usage
+
+### Running `checker`
+```bash
+./checker 5 2 3 1 4
+./checker "-50 -400 -20 -1 -100"
+./checker "-22" "35" "40" "-15" "75"
+```
+
+### Running `push_swap`
+```bash
+./push_swap 5 2 3 1 4
+./push_swap "-50 -400 -20 -1 -100"
+./push_swap "-22" "35" "40" "-15" "75"
+```
+
+### Running `Both Together`
+```bash
+ARG=`ruby -e "puts (0..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker -v $ARG
+ARG="Random Numbers"; ./push_swap $ARG | ./checker $ARG
+```
+### Push Swap Visualizer
+![Push_Swap Visualizer](https://github.com/na7li/push_swap/blob/main/push_swap_nahli.gif)
+
+### Resourses
+https://42-cursus.gitbook.io/guide/rank-02/push_swap?utm_source=chatgpt.com 
+<br>
+https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a <br>
+https://medium.com/@ayogun/push-swap-c1f5d2d41e97 <br>
+https://medium.com/@ulysse.gerkens/push-swap-in-less-than-4200-operations-c292f034f6c0 <br>
+https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e <br>
+https://github.com/42YerevanProjects/push_swap <br>
+https://github.com/jdecorte-be/42-Push-Swap <br>
+https://github.com/ayogun/push_swap/tree/main <br>
+https://github.com/julien-ctx/push-swap/tree/main <br>
+https://github.com/JamieDawson <br>
+https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php <br>
+https://github.com/Thuggonaut/42IC_Ring02_Push_swap/tree/main <br>
+
+### Testers
+https://github.com/Niimphu/push_swap_visualiser <br>
+https://github.com/gemartin99/Push-Swap-Tester <br>
+https://github.com/leofu9487/push_swap_tester
